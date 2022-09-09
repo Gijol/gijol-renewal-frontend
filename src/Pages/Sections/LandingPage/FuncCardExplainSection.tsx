@@ -1,71 +1,40 @@
 import React from "react";
+import styled from "styled-components";
 import SectionContainer from "../../../Layout/Container/SectionContainer";
 import { MainDetail } from "../../../Layout/Typography/Detail";
+import { fnList } from "../../../storage/fnList";
+
+interface IProps {
+  explanation: string;
+  name: string;
+  reversed: boolean;
+}
+
+const FnTextContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  height: 100%;
+  justify-content: center;
+  align-items: flex-start;
+`;
 
 function FuncCardExplainSection() {
-  return (
-    <>
-      <SectionContainer>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            width: "40%",
-            height: "100%",
-            justifyContent: "center",
-            alignItems: "flex-start",
-          }}
-        >
+  const explanationContents = fnList.map((item: IProps) => {
+    return (
+      <SectionContainer reversed={item.reversed}>
+        <FnTextContainer>
           <div>
-            <p style={{ fontSize: "36px", margin: "0 0 40px 0" }}>졸업요건</p>
+            <p style={{ fontSize: "36px", margin: "0 0 40px 0" }}>
+              {item.name}
+            </p>
           </div>
-          <MainDetail>
-            Gijol에서 졸업요건 현황을 분석하여 충족을 위한 강의를 추천드립니다.
-          </MainDetail>
-        </div>
+          <MainDetail>{item.explanation}</MainDetail>
+        </FnTextContainer>
       </SectionContainer>
-      <SectionContainer reverse="true">
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            width: "40%",
-            height: "100%",
-            justifyContent: "center",
-            alignItems: "flex-start",
-          }}
-        >
-          <div>
-            <p style={{ fontSize: "36px", margin: "0 0 40px 0" }}>강의검색</p>
-          </div>
-          <MainDetail>
-            강의에 대한 다양하고 체계적인 정보들을 보다 간편하게 찾을 수
-            있습니다.
-          </MainDetail>
-        </div>
-      </SectionContainer>
-      <SectionContainer>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            width: "40%",
-            height: "100%",
-            justifyContent: "center",
-            alignItems: "flex-start",
-          }}
-        >
-          <div>
-            <p style={{ fontSize: "36px", margin: "0 0 40px 0" }}>강의평가</p>
-          </div>
-          <MainDetail>
-            이수한 강의에 대한 평가를 공유하여 강의에 대한 유용한 정보들을 얻을
-            수 있습니다.
-          </MainDetail>
-        </div>
-      </SectionContainer>
-    </>
-  );
+    );
+  });
+  return <>{explanationContents}</>;
 }
 
 export default FuncCardExplainSection;

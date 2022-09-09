@@ -2,50 +2,48 @@ import React from "react";
 import NavMenu from "./NavMenu";
 import AuthBox from "./AuthBox";
 import { Link } from "react-router-dom";
+import styled from "styled-components";
+
+const NavBarContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1;
+  position: fixed;
+  background-color: white;
+  height: 60px;
+`;
+
+const LogoContainer = styled(Link)`
+  font-size: 1.75rem;
+  text-decoration: none;
+  color: black;
+  margin-left: 24px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
+const NavSubContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  gap: 48px;
+`;
 
 function NavBar() {
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "row",
-        width: "100%",
-        alignItems: "center",
-        justifyContent: "space-between",
-        zIndex: "1",
-        position: "fixed",
-        backgroundColor: "white",
-        height: "60px",
-      }}
-    >
-      <Link
-        to="/"
-        style={{
-          fontSize: "1.75rem",
-          textDecoration: "none",
-          color: "black",
-          marginLeft: "24px",
-          height: "100%",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        Gijol
-      </Link>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          height: "100%",
-          gap: "48px",
-        }}
-      >
+    <NavBarContainer>
+      <LogoContainer to="/">Gijol</LogoContainer>
+      <NavSubContainer>
         <NavMenu />
         <AuthBox />
-      </div>
-    </div>
+      </NavSubContainer>
+    </NavBarContainer>
   );
 }
 

@@ -1,26 +1,32 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import styled from "styled-components";
+
+interface LProps {
+  bgColor: string;
+  color: string;
+}
+
+export const DefaultLinkStyles = styled(Link)`
+  height: fit-content;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 6px;
+  text-decoration: none;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: gray;
+  &:hover {
+    background-color: #f2f4f6;
+  }
+`;
 
 function LoginButton() {
-  return (
-    <Link
-      to="/"
-      style={{
-        backgroundColor: "#f2f4f6",
-        border: "none",
-        padding: "10px 16px",
-        borderRadius: "6px",
-        textDecoration: "none",
-        display: "flex",
-        alignItems: "center",
-        cursor: "pointer",
-        fontSize: "14px",
-        color: "black",
-      }}
-    >
-      로그인
-    </Link>
-  );
+  return <DefaultLinkStyles to="/">로그인</DefaultLinkStyles>;
 }
 
 export default LoginButton;
