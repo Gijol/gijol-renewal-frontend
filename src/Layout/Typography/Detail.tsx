@@ -2,7 +2,7 @@ import React from "react";
 
 function MainDetail(props: any) {
   return (
-    <p
+    <div
       style={{
         fontSize: "20px",
         color: "gray",
@@ -11,12 +11,14 @@ function MainDetail(props: any) {
       }}
     >
       {props.children}
-    </p>
+    </div>
   );
 }
 
 function SubDetail(props: any) {
-  return <p style={{ fontSize: "0.75rem", color: "gray" }}>{props.children}</p>;
+  return (
+    <div style={{ fontSize: "0.75rem", color: "gray" }}>{props.children}</div>
+  );
 }
 
 export { MainDetail, SubDetail };

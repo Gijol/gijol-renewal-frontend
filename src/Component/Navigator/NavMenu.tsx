@@ -52,6 +52,13 @@ function NavMenu() {
         rel="noreferrer"
         target="_blank"
       >
+        자주 묻는 질문
+      </NavMenuOuterLink>
+      <NavMenuOuterLink
+        href="https://choieungi-project.notion.site/Team-Gijol-e5e279e91a0646c2a84b548873601a3f"
+        rel="noreferrer"
+        target="_blank"
+      >
         팀 소개
       </NavMenuOuterLink>
     </NavMenuContainer>

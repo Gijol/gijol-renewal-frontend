@@ -5,6 +5,7 @@ import { MainDetail } from "../../../Layout/Typography/Detail";
 import { fnList } from "../../../storage/fnList";
 
 interface IProps {
+  key: string;
   explanation: string;
   name: string;
   reversed: boolean;
@@ -22,7 +23,7 @@ const FnTextContainer = styled.div`
 function FuncCardExplainSection() {
   const explanationContents = fnList.map((item: IProps) => {
     return (
-      <SectionContainer reversed={item.reversed}>
+      <SectionContainer reversed={item.reversed} key={item.key}>
         <FnTextContainer>
           <div>
             <p style={{ fontSize: "36px", margin: "0 0 40px 0" }}>

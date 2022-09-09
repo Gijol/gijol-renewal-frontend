@@ -2,7 +2,7 @@ import React from "react";
 
 function MainTitle(props: any) {
   return (
-    <p
+    <div
       style={{
         fontSize: "3rem",
         width: "100%",
@@ -14,13 +14,13 @@ function MainTitle(props: any) {
       }}
     >
       {props.children}
-    </p>
+    </div>
   );
 }
 
 function SubTitle(props: any) {
   return (
-    <p
+    <div
       style={{
         fontSize: "2rem",
         width: "100%",
@@ -34,7 +34,7 @@ function SubTitle(props: any) {
       }}
     >
       {props.children}
-    </p>
+    </div>
   );
 }
 
