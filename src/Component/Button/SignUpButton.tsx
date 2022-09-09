@@ -19,7 +19,7 @@ export const DefaultLinkStyles = styled(Link)`
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  color: gray;
+  color: #6b7684;
   &:hover {
     background-color: #f2f4f6;
   }

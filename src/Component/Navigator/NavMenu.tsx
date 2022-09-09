@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-const NavMenuContainer = styled.div`
+const NavMenuWrapper = styled.div`
   display: flex;
   flex-direction: row;
   gap: 16px;
@@ -13,7 +13,7 @@ const NavMenuContainer = styled.div`
 const NavMenuLink = styled(Link)`
   height: fit-content;
   padding: 12px 16px;
-  font-size: 1rem;
+  font-size: 16px;
   text-decoration: none;
   color: #6b7684;
   display: flex;
@@ -44,7 +44,7 @@ const NavMenuOuterLink = styled.a`
 function NavMenu() {
   // styled-component 사용해야됨
   return (
-    <NavMenuContainer>
+    <NavMenuWrapper>
       <NavMenuLink to="/grad">졸업요건</NavMenuLink>
       <NavMenuLink to="/course-search">강의검색</NavMenuLink>
       <NavMenuOuterLink
@@ -61,7 +61,7 @@ function NavMenu() {
       >
         팀 소개
       </NavMenuOuterLink>
-    </NavMenuContainer>
+    </NavMenuWrapper>
   );
 }
 

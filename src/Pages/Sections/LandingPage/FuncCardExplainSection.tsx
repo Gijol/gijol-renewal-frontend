@@ -26,7 +26,7 @@ function FuncCardExplainSection() {
       <SectionContainer reversed={item.reversed} key={item.key}>
         <FnTextContainer>
           <div>
-            <p style={{ fontSize: "36px", margin: "0 0 40px 0" }}>
+            <p style={{ fontSize: "28px", margin: "0 0 28px 0" }}>
               {item.name}
             </p>
           </div>
