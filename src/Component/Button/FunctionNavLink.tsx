@@ -12,20 +12,25 @@ interface LProps {
   color: string;
 }
 
-export const FunctionNavLinkContainer = styled(Link)`
+const FunctionNavLinkContainer = styled(Link)`
   width: 180px;
   height: fit-content;
   padding: 16px 24px;
-  border: none;
+  border: 1px solid #1da447;
   border-radius: 6px;
   text-decoration: none;
-  background-color: #1da447;
+  background-color: white;
+  color: #1da447;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  color: white;
+  &:hover {
+    background-color: #1da447;
+    color: white;
+    box-shadow: 0 12px 20px lightgrey;
+  }
 `;
 
 function FunctionNavLink({ text, destination }: BProps) {

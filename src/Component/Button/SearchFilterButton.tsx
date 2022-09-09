@@ -3,9 +3,11 @@ import styled from "styled-components";
 
 const SearchFilterButtonContainer = styled.button`
   height: fit-content;
-  padding: 12px 16px;
-  border: none;
+  padding: 14px 20px;
   border-radius: 6px;
+  border: 1px solid #b0b8c1;
+  background-color: #f2f4f6;
+  box-shadow: 0 2px 4px 0 rgb(0 0 0 / 10%);
   text-decoration: none;
   display: flex;
   flex-direction: column;

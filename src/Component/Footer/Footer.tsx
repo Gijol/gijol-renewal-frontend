@@ -19,8 +19,8 @@ const FooterLogoContainer = styled(Link)`
 const FooterContainer = styled.div`
   width: 100%;
   height: fit-content;
-  padding: 24px 40px;
-  background-color: #f2f4f6;
+  padding: 24px 0;
+  background-color: #e5e8eb;
   display: flex;
   flex-direction: column;
   justify-content: center;

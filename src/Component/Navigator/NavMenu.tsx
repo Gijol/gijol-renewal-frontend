@@ -15,7 +15,7 @@ const NavMenuLink = styled(Link)`
   padding: 12px 16px;
   font-size: 1rem;
   text-decoration: none;
-  color: gray;
+  color: #6b7684;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -29,7 +29,7 @@ const NavMenuLink = styled(Link)`
 const NavMenuOuterLink = styled.a`
   height: fit-content;
   text-decoration: none;
-  color: gray;
+  color: #6b7684;
   padding: 12px 16px;
   border-radius: 8px;
   display: flex;
