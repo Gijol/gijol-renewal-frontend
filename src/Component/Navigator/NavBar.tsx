@@ -10,7 +10,7 @@ const NavBarContainer = styled.div`
   width: 100%;
   align-items: center;
   justify-content: space-between;
-  z-index: 1;
+  z-index: 1000;
   position: fixed;
   background-color: white;
   height: 60px;
