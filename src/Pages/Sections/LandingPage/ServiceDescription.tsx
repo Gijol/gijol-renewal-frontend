@@ -19,7 +19,7 @@ function ServiceDescription() {
       <WaveAnimation />
       <ServiceDescriptionContainer>
         <SubTitle>
-          Gijol은 사용자 중심의 체계화된 강의 정보를 제공하는 서비스입니다
+          " Gijol은 사용자 중심의 체계화된 강의 정보를 제공하는 서비스입니다 "
         </SubTitle>
       </ServiceDescriptionContainer>
       <WaveAnimation reversed />

@@ -71,18 +71,18 @@ function WaveAnimation(props: WPosProps) {
         bottom="0"
       />
       <WaveUnitReversed
-        duration="15s"
+        duration="20s"
         zIndex="101"
         opacity="0.5"
         delay="-5s"
-        bottom="10px"
+        bottom="0px"
       />
       <WaveUnitReversed
-        duration="15s"
+        duration="10s"
         zIndex="102"
         opacity="0.2"
         delay="-2s"
-        bottom="15px"
+        bottom="0px"
       />
     </>
   ) : (

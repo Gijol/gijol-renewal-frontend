@@ -1,6 +1,11 @@
 import React from "react";
-import { FnExplanationDetail } from "../../../Layout/Container/FnDescriptionContainer";
+import {
+  FnExplanation,
+  FnExplanationDetail,
+} from "../../../Layout/Container/FnDescriptionContainer";
 import styled from "styled-components";
+import CircularProgressBar from "../../../Component/ProgressBar/CircularProgressBar";
+import ColumnProgressBar from "../../../Component/ProgressBar/ColumnProgressBar";
 
 const OverallResult = styled.div`
   width: 100%;
@@ -13,29 +18,16 @@ const OverallResult = styled.div`
   gap: 40px;
 `;
 
-const CircularProgressContainer = styled.div`
-  width: 360px;
-  height: 360px;
-  border-radius: 6px;
-  background-color: #f2f4f6;
-`;
-
-const BarProgressContainer = styled.div`
-  width: 500px;
-  height: 360px;
-  border-radius: 6px;
-  background-color: #f2f4f6;
-`;
-
 function CompletedLecMacroInfo() {
   return (
     <>
+      <FnExplanation>전반적인 이수 현황을 알려드립니다</FnExplanation>
       <FnExplanationDetail>
-        우선 졸업요건 충족 현황에 대한 종합적인 결과입니다
+        우선 학점에 대한 종합적인 결과입니다
       </FnExplanationDetail>
       <OverallResult>
-        <CircularProgressContainer />
-        <BarProgressContainer />
+        <CircularProgressBar />
+        <ColumnProgressBar />
       </OverallResult>
     </>
   );
