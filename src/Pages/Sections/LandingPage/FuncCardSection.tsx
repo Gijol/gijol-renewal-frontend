@@ -10,6 +10,9 @@ const FnCardContainer = styled.div`
   align-items: center;
   justify-content: center;
   padding: 40px 0;
+  @media only screen and (max-width: 500px) {
+    margin-bottom: 80px;
+  }
 `;
 
 function FuncCardSection() {

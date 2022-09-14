@@ -10,13 +10,17 @@ const CourseSearchSectionContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  gap: 20px;
 `;
 
 const CourseSearchWrapper = styled.div`
   max-width: 580px;
   width: 100%;
   position: relative;
+  margin: 0 40px;
+  @media only screen and (max-width: 768px) {
+    max-width: 300px;
+    width: 100%;
+  }
 `;
 
 function CourseSearchSection() {

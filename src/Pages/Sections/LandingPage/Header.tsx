@@ -20,6 +20,9 @@ const HeaderButtonContainer = styled.div`
   justify-content: center;
   align-items: center;
   gap: 24px;
+  @media only screen and (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 function Header() {

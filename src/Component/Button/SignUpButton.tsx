@@ -14,14 +14,17 @@ export const DefaultLinkStyles = styled(Link)`
   border-radius: 6px;
   text-decoration: none;
   background-color: white;
+  color: #6b7684;
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  cursor: pointer;
-  color: #6b7684;
   &:hover {
     background-color: #f2f4f6;
+  }
+  @media only screen and (max-width: 768px) {
+    display: none;
   }
 `;
 

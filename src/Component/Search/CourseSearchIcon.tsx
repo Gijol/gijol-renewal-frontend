@@ -15,7 +15,7 @@ const SearchButton = styled.button`
 function CourseSearchIcon() {
   return (
     <SearchButton>
-      <BsSearch size="16px" color="#6b7684" />
+      <BsSearch size="16px" color="white" />
     </SearchButton>
   );
 }

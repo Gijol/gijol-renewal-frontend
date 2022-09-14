@@ -23,6 +23,9 @@ export const DefaultLinkStyles = styled(Link)`
   &:hover {
     background-color: #f2f4f6;
   }
+  @media only screen and (max-width: 768px) {
+    height: 48px;
+  }
 `;
 
 function LoginButton() {

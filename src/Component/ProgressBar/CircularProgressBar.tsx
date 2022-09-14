@@ -12,6 +12,7 @@ const CircularProgressContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  box-shadow: 0 2px 4px 0 rgb(0 0 0 / 20%);
 `;
 
 function CircularProgressBar() {

@@ -3,6 +3,7 @@ import NavMenu from "./NavMenu";
 import AuthBox from "./AuthBox";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import MobileNavMenu from "./MobileNavMenu";
 
 const NavBarContainer = styled.div`
   display: flex;
@@ -35,6 +36,9 @@ const NavSubContainer = styled.div`
   align-items: center;
   height: 100%;
   gap: 48px;
+  @media only screen and (max-width: 768px) {
+    gap: 0;
+  }
 `;
 
 function NavBar() {
@@ -44,6 +48,7 @@ function NavBar() {
       <NavSubContainer>
         <NavMenu />
         <AuthBox />
+        <MobileNavMenu />
       </NavSubContainer>
     </NavBarContainer>
   );

@@ -14,6 +14,9 @@ const SectionContainerReversible = styled.div`
   display: flex;
   flex-direction: ${(props: SProps) =>
     !props.reversed ? "row" : "row-reverse"};
+  @media only screen and (max-width: 500px) {
+    display: none;
+  }
 `;
 
 function SectionContainer(props: any) {

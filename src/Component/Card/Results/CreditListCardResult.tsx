@@ -1,23 +1,21 @@
 import React from "react";
 import styled from "styled-components";
 
+interface ListCProps {
+  currentTab: string;
+}
+
 const ListCardWrapper = styled.div`
+  box-sizing: border-box;
   width: 500px;
-  height: calc(100% - 20px);
+  height: 100%;
+  background-color: #f2f4f6;
+  border-radius: 6px;
   padding: 10px;
-  border: 1px solid black;
 `;
 
-function CreditListCardResult() {
-  return (
-    <ListCardWrapper>
-      수강한 강의 리스트수강한 강의 리스트수강한 강의 리스트수강한 강의
-      리스트수강한 강의 리스트수강한 강의 리스트수강한 강의 리스트수강한 강의
-      리스트수강한 강의 리스트수강한 강의 리스트수강한 강의 리스트수강한 강의
-      리스트수강한 강의 리스트수강한 강의 리스트수강한 강의 리스트수강한 강의
-      리스트
-    </ListCardWrapper>
-  );
+function CreditListCardResult({ currentTab }: ListCProps) {
+  return <ListCardWrapper>{currentTab}에 대한 리스트</ListCardWrapper>;
 }
 
 export default CreditListCardResult;
