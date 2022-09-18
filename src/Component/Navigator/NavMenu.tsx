@@ -45,7 +45,6 @@ const NavMenuOuterLink = styled.a`
 `;
 
 function NavMenu() {
-  // styled-component 사용해야됨
   return (
     <NavMenuWrapper>
       <NavMenuLink to="/grad">졸업요건</NavMenuLink>

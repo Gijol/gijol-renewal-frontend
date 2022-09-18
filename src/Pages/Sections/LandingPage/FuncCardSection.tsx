@@ -1,5 +1,5 @@
 import React from "react";
-import FunctionExplainCard from "../../../Component/Card/FunctionExplainCard";
+import FunctionExplainCard from "../../../Component/Card/Functions/FunctionExplainCard";
 import styled from "styled-components";
 
 const FnCardContainer = styled.div`

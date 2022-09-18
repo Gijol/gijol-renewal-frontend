@@ -17,7 +17,7 @@ const FooterLogoContainer = styled(Link)`
 `;
 
 const FooterContainer = styled.div`
-  width: 100%;
+  width: 100vw;
   height: fit-content;
   padding: 24px 0;
   background-color: #e5e8eb;
@@ -28,7 +28,7 @@ const FooterContainer = styled.div`
 `;
 
 const FooterMenuContainer = styled.div`
-  width: 50%;
+  width: fit-content;
   margin-bottom: 24px;
 `;
 

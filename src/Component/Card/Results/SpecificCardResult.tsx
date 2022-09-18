@@ -1,7 +1,7 @@
 import React from "react";
-import CreditCircularCardResult from "./Results/CreditCircularCardResult";
-import CreditBarCardResult from "./Results/CreditBarCardResult";
-import CreditListCardResult from "./Results/CreditListCardResult";
+import CreditCircularCardResult from "./CreditCircularCardResult";
+import CreditIsSatisfiedCardResult from "./CreditIsSatisfiedCardResult";
+import CreditListCardResult from "./CreditListCardResult";
 import styled from "styled-components";
 
 interface CProps {
@@ -9,18 +9,20 @@ interface CProps {
 }
 
 const UnClickedContainer = styled.div`
-  width: 800px;
+  box-sizing: border-box;
+  width: 830px;
   height: 100%;
   padding: 10px 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-radius: 6px;
-  box-shadow: -2px 0 4px 0 rgb(0 0 0 / 20%);
+  border-radius: 0 6px 6px 0;
+  box-shadow: -2px 0 3px 1px rgb(0 0 0 / 10%);
 `;
 
 const CardResultContainer = styled.div`
+  box-sizing: border-box;
   width: fit-content;
   height: 100%;
   display: flex;
@@ -30,8 +32,8 @@ const CardResultContainer = styled.div`
   gap: 10px;
   padding: 10px;
   background-color: #fff;
-  border-radius: 6px;
-  box-shadow: -2px 0 4px 0 rgb(0 0 0 / 20%);
+  border-radius: 0 6px 6px 0;
+  box-shadow: -2px 0 3px 1px rgb(0 0 0 / 10%);
 `;
 
 const CreditChartContainer = styled.div`
@@ -53,7 +55,7 @@ function SpecificCardResult({ currentTab }: CProps) {
     <CardResultContainer>
       <CreditChartContainer>
         <CreditCircularCardResult currentTab={currentTab} />
-        <CreditBarCardResult currentTab={currentTab} />
+        <CreditIsSatisfiedCardResult currentTab={currentTab} />
       </CreditChartContainer>
       <CreditListCardResult currentTab={currentTab} />
     </CardResultContainer>

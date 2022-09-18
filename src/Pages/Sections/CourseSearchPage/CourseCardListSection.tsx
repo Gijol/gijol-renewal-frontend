@@ -1,5 +1,5 @@
 import React from "react";
-import CourseCardSelectable from "../../../Component/Card/CourseCardSelectable";
+import CourseCardSelectable from "../../../Component/Card/CourseSearch/CourseCardSelectable";
 import styled from "styled-components";
 
 const CourseCardGridContainer = styled.div`

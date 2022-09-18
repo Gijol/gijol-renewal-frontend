@@ -1,5 +1,5 @@
 import React from "react";
-import { SubDetail } from "../../Layout/Typography/Detail";
+import { SubDetail } from "../../../Layout/Typography/Detail";
 import styled from "styled-components";
 
 interface FProps {
@@ -9,7 +9,7 @@ interface FProps {
 const FnCard = styled.div`
   border-radius: 8px;
   width: 300px;
-  height: 200px;
+  height: 280px;
   display: flex;
   flex-direction: column;
   justify-content: center;

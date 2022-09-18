@@ -7,11 +7,11 @@ interface ListCProps {
 
 const ListCardWrapper = styled.div`
   box-sizing: border-box;
-  width: 500px;
+  width: 520px;
   height: 100%;
   background-color: #f2f4f6;
   border-radius: 6px;
-  padding: 10px;
+  padding: 20px;
 `;
 
 function CreditListCardResult({ currentTab }: ListCProps) {

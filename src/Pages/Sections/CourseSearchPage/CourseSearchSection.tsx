@@ -16,7 +16,7 @@ const CourseSearchWrapper = styled.div`
   max-width: 580px;
   width: 100%;
   position: relative;
-  margin: 0 40px;
+  margin: 0 10px;
   @media only screen and (max-width: 768px) {
     max-width: 300px;
     width: 100%;
