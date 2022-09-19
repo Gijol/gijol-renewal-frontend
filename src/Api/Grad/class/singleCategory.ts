@@ -3,7 +3,7 @@ import TakenCourse from "./takenCourse";
 
 class SingleCategory {
   readonly #userTakenCourseList: UserTakenCourseList;
-  readonly #totalCredits: number;
+  readonly #singleTotalCredits: number;
   readonly #minConditionCredits: number;
   readonly #maxConditionCredits: number;
   readonly #satisfied: boolean;
@@ -11,14 +11,14 @@ class SingleCategory {
 
   constructor(
     userTakenCoursesList: UserTakenCourseList,
-    totalCredits: number,
+    singleTotalCredits: number,
     min: number,
     max: number,
     satisfied: boolean,
     messages: string[]
   ) {
     this.#userTakenCourseList = userTakenCoursesList;
-    this.#totalCredits = totalCredits;
+    this.#singleTotalCredits = singleTotalCredits;
     this.#minConditionCredits = min;
     this.#maxConditionCredits = max;
     this.#satisfied = satisfied;
@@ -30,7 +30,7 @@ class SingleCategory {
   }
 
   public get getTotalCredits(): number {
-    return this.#totalCredits;
+    return this.#singleTotalCredits;
   }
 
   public get getMessages(): Array<string> {

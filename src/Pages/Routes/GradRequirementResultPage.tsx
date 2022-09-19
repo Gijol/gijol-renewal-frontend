@@ -4,7 +4,7 @@ import CompletedLecMacroInfo from "../Sections/GradRequirementPage/CompletedLecM
 import CompletedLecMicroInfo from "../Sections/GradRequirementPage/CompletedLecMicroInfo";
 import RecommendLecInfo from "../Sections/GradRequirementPage/RecommendLecInfo";
 
-function GradRequirementPage() {
+function GradRequirementResultPage() {
   return (
     <PageContainer>
       <CompletedLecMacroInfo />
@@ -14,4 +14,4 @@ function GradRequirementPage() {
   );
 }
 
-export default GradRequirementPage;
+export default GradRequirementResultPage;
