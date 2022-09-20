@@ -1,6 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useDropzone } from "react-dropzone";
+
+interface DProps {
+  setGradFile: React.Dispatch<React.SetStateAction<File | null>>;
+}
 
 // dropzone 의 활성화 여부에 따라 색을 결정하는 함수이다.
 const getColors = (props: any) => {
@@ -20,7 +24,7 @@ const DragAndDropContainer = styled.div`
   box-sizing: border-box;
   width: 100%;
   height: 300px;
-  margin: 40px 0 80px 0;
+  margin: 40px 0 0 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -52,20 +56,8 @@ const DndUploadButton = styled.button`
   }
 `;
 
-const DndRemoveButton = styled.button`
-  border: unset;
-  box-sizing: border-box;
-  padding: 10px;
-  border-radius: 6px;
-  &:hover {
-    background-color: gray;
-    color: white;
-    transition: 0.2s;
-  }
-`;
-
 //react-dropzone 의 공식문서를 참고하길 바란다.
-function DragAndDropZone() {
+function DragAndDropZone({ setGradFile }: DProps) {
   const [uploaded, setUploaded] = useState(false);
   const {
     getRootProps,
@@ -83,11 +75,20 @@ function DragAndDropZone() {
       ],
     },
     onDropAccepted: () => {
-      setUploaded(() => {
-        return true;
-      });
+      // if (acceptedFiles !== null) {
+      setUploaded(() => true);
+      // }
     },
   });
+
+  useEffect(() => {
+    if (uploaded) {
+      setGradFile(acceptedFiles[0]);
+    }
+    if (acceptedFiles.length === 0) {
+      setUploaded(() => false);
+    }
+  }, [acceptedFiles]);
 
   // 업로드 된 파일 명을 나열하는 함수, 사실 map 을 사용할 필요는 없긴하다.
   let fileUploaded: JSX.Element[] = acceptedFiles.map((file) => (
@@ -99,8 +100,15 @@ function DragAndDropZone() {
   // upload 되었을 때 파일 명이 보이도록 하는 함수
   const contents = !uploaded ? (
     <>
-      <p>다운받은 성적 파일을 드래그하거나 아래 버튼을 눌러 업로드하세요</p>
-      <p style={{ color: "gray", fontSize: "12px" }}>
+      <p
+        style={{
+          color: "gray",
+          fontSize: "14px",
+          textAlign: "center",
+          lineHeight: "1.5",
+        }}
+      >
+        다운받은 성적 파일을 드래그하거나 아래 버튼을 눌러 업로드하세요 <br />
         xls, xlsx 파일만 업로드 가능합니다.
       </p>
     </>
@@ -116,11 +124,9 @@ function DragAndDropZone() {
       >
         <input {...getInputProps()} />
         {contents}
-        <div>
-          <DndUploadButton type="button">
-            {!uploaded ? "파일 선택하기" : "다른 파일로 바꾸기"}
-          </DndUploadButton>
-        </div>
+        <DndUploadButton type="button">
+          {!uploaded ? "파일 선택하기" : "다른 파일로 바꾸기"}
+        </DndUploadButton>
       </UploadContainer>
     </DragAndDropContainer>
   );

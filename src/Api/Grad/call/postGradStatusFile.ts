@@ -1,4 +1,5 @@
 import axios from "axios";
+import { GradStatusType } from "../types/gradApiResultTypes";
 
 // 요 부분은 설명 듣고 싶다!
 // custom Error Handling 이라고 보면 되려나?
@@ -9,12 +10,19 @@ class HTTPError extends Error {
   }
 }
 
-const postGradStatusFile = async (gradeStatusFile: File, majorType: string) => {
-  const BASE_URL = process.env.REACT_APP_DEV_API;
+// const API = axios.create({
+//   baseURL: "https;//dev-api.gijol.im",
+// });
+
+const postGradStatusFile = async (
+  gradeStatusFile: File,
+  majorType: string
+): Promise<GradStatusType> => {
+  const BASE_URL = "https://dev-api.gijol.im";
   const formData = new FormData();
 
   formData.append("majorType", majorType);
-  formData.append("gradeFile", gradeStatusFile);
+  formData.append("multipartFile", gradeStatusFile);
 
   const response = await axios.post(`${BASE_URL}/graduation`, formData);
   if (response.status === 405) {

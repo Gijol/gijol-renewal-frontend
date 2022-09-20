@@ -1,4 +1,4 @@
-interface TakenCourseType {
+export interface TakenCourseType {
   year: number;
   semester: string;
   courseType: string;
@@ -7,11 +7,11 @@ interface TakenCourseType {
   credit: number;
 }
 
-interface UserTakenCourseListType {
+export interface UserTakenCourseListType {
   takenCourses: Array<TakenCourseType>;
 }
 
-interface SingleCategoryType {
+export interface SingleCategoryType {
   userTakenCoursesList: UserTakenCourseListType;
   singleTotalCredits: number;
   min: number;
@@ -20,7 +20,7 @@ interface SingleCategoryType {
   messages: string[];
 }
 
-interface GradStatusType {
+export interface GradStatusType {
   graduationCategory: {
     languageBasic: SingleCategoryType;
     scienceBasic: SingleCategoryType;
