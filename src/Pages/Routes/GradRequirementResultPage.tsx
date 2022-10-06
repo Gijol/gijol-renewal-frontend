@@ -8,11 +8,9 @@ import GradProvider from "../../Provider/GradProvider";
 function GradRequirementResultPage() {
   return (
     <PageContainer>
-      <GradProvider>
-        <CompletedLecMacroInfo />
-        <CompletedLecMicroInfo />
-        <RecommendLecInfo />
-      </GradProvider>
+      <CompletedLecMacroInfo />
+      <CompletedLecMicroInfo />
+      <RecommendLecInfo />
     </PageContainer>
   );
 }

@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 interface IProps {
-  setMajorType: React.Dispatch<React.SetStateAction<string>>;
+  setMajorType: (major: string) => void;
 }
 
 const MajorInputBtnContainer = styled.select`
@@ -18,9 +18,7 @@ const MajorInputBtnContainer = styled.select`
 
 function MajorInput({ setMajorType }: IProps) {
   const onSelectHandler = (event: any) => {
-    if (event.target.value !== null) {
-      setMajorType(() => event.target.value);
-    }
+    setMajorType(event.target.value);
   };
   return (
     <MajorInputBtnContainer onChange={onSelectHandler}>

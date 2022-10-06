@@ -4,9 +4,7 @@ import {
   FnExplanation,
   FnExplanationDetail,
 } from "../../Layout/Container/FnDescriptionContainer";
-import DragAndDropZone from "../../Component/File/DragAndDropZone";
 import FileUploadSections from "../Sections/GradRequirementPage/FileUploadSections";
-import GradProvider from "../../Provider/GradProvider";
 
 function GradRequirementUploadPage() {
   return (
@@ -15,9 +13,7 @@ function GradRequirementUploadPage() {
       <FnExplanationDetail>
         아래 칸에 성적 확인 파일을 업로드 해주세요
       </FnExplanationDetail>
-      <GradProvider>
-        <FileUploadSections />
-      </GradProvider>
+      <FileUploadSections />
     </PageContainer>
   );
 }

@@ -47,7 +47,7 @@ const NavMenuOuterLink = styled.a`
 function NavMenu() {
   return (
     <NavMenuWrapper>
-      <NavMenuLink to="/grad-upload">졸업요건</NavMenuLink>
+      <NavMenuLink to="/grad/upload">졸업요건</NavMenuLink>
       <NavMenuLink to="/course-search">강의검색</NavMenuLink>
       <NavMenuOuterLink
         href="https://choieungi-project.notion.site/Q-A-9e325eabef4e479a8f47e95eb90bb344"

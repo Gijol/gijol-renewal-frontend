@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, {Dispatch, SetStateAction, useEffect, useState} from "react";
 import styled from "styled-components";
 import { useDropzone } from "react-dropzone";
 
 interface DProps {
-  setGradFile: React.Dispatch<React.SetStateAction<File | null>>;
+  setGradFile: Dispatch<SetStateAction<File | undefined>>;
 }
 
 // dropzone 의 활성화 여부에 따라 색을 결정하는 함수이다.
@@ -77,18 +77,22 @@ function DragAndDropZone({ setGradFile }: DProps) {
     onDropAccepted: () => {
       // if (acceptedFiles !== null) {
       setUploaded(() => true);
+      // setGradFile(acceptedFiles[0]);
       // }
     },
   });
 
   useEffect(() => {
-    if (uploaded) {
-      setGradFile(acceptedFiles[0]);
-    }
+    // if (uploaded) {
+    //   setGradFile(acceptedFiles[0]);
+    // }
     if (acceptedFiles.length === 0) {
       setUploaded(() => false);
+    } else {
+      setUploaded(() => true);
+      setGradFile(acceptedFiles[0]);
     }
-  }, [acceptedFiles]);
+  }, [acceptedFiles, uploaded]);
 
   // 업로드 된 파일 명을 나열하는 함수, 사실 map 을 사용할 필요는 없긴하다.
   let fileUploaded: JSX.Element[] = acceptedFiles.map((file) => (

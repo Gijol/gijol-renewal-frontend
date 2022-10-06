@@ -26,7 +26,7 @@ const HeaderButtonContainer = styled.div`
 `;
 
 function Header() {
-  const gradRequirementPage = "grad-result";
+  const gradRequirementPage = "grad/upload";
   const courseSearchPage = "course-search";
   return (
     <HeaderContainer>
