@@ -12,12 +12,11 @@ export interface UserTakenCourseListType {
 }
 
 export interface SingleCategoryType {
-  userTakenCoursesList: UserTakenCourseListType;
-  singleTotalCredits: number;
-  min: number;
-  max: number;
-  satisfied: boolean;
   messages: string[];
+  minConditionCredits: number;
+  satisfied: boolean;
+  totalCredits: number;
+  userTakenCoursesList: UserTakenCourseListType;
 }
 
 export interface GradStatusType {

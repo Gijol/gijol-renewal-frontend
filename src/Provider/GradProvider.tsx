@@ -10,13 +10,15 @@ interface AProps {
   updateGradStatus(gradStatusFile: File, majorType: string): void;
 }
 
-export const GradStatusValueContext = createContext<GradStatusType | null>(
-  null
+export const GradStatusValueContext = createContext<GradStatusType | undefined>(
+  undefined
 );
 export const GradStatusActionContext = createContext<AProps | null>(null);
 
 function GradProvider({ children }: Props): JSX.Element {
-  const [gradStatus, setGradStatus] = useState<GradStatusType | null>(null);
+  const [gradStatus, setGradStatus] = useState<GradStatusType | undefined>(
+    undefined
+  );
 
   const action = useMemo(
     () => ({

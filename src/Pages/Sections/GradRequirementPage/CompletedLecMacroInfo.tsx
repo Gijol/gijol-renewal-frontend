@@ -15,7 +15,6 @@ const OverallResult = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 40px;
 `;
 
 function CompletedLecMacroInfo() {

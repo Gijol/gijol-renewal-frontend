@@ -1,111 +1,106 @@
 import React from "react";
 import styled from "styled-components";
-import Chart from "react-apexcharts";
-import { ApexOptions } from "apexcharts";
+
+import { Chart as ChartJS, registerables } from "chart.js";
+import { Bar } from "react-chartjs-2";
+import useGradStatusValue from "../../Hooks/Grad/useGradStatusValue";
+import { SingleCategoryType } from "../../Api/Grad/types/gradApiResultTypes";
+
+ChartJS.register(...registerables);
+
+interface CProps {}
 
 const ColumnProgressContainer = styled.div`
+  box-sizing: border-box;
   width: 500px;
   height: 380px;
-  border-radius: 6px;
-  background-color: #f2f4f6;
+  padding: 40px;
+  border-radius: 16px;
+  background-color: #fff;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 2px 4px 0 rgb(0 0 0 / 20%);
+  //box-shadow: 0 2px 4px 0 rgb(0 0 0 / 20%);
 `;
 
 function ColumnProgressBar() {
-  const options: ApexOptions = {
-    theme: {
-      mode: "light",
-    },
-    grid: {
-      show: false,
-      padding: {
-        bottom: 0,
+  const valueContext = useGradStatusValue();
+
+  const options = {
+    maintainAspectRatio: false,
+    responsive: true,
+    plugins: {
+      legend: {
+        display: false,
+      },
+      title: {
+        display: false,
+        text: "Chart.js Bar Chart",
       },
     },
-    chart: {
-      height: "100%",
-      width: "100%",
-      type: "bar",
-      toolbar: {
-        show: false,
-      },
-      zoom: {
-        enabled: false,
-      },
-    },
-    plotOptions: {
-      bar: {
-        columnWidth: "60%",
-        distributed: true,
-        borderRadius: 6,
-      },
-    },
-    dataLabels: {
-      enabled: true,
-      textAnchor: "middle",
-      formatter: (val: string | number | number[]) => {
-        return val + "%";
-      },
-      background: {
-        dropShadow: {
-          enabled: false,
+    scales: {
+      x: {
+        grid: {
+          display: false,
         },
       },
-    },
-    legend: {
-      show: false,
-    },
-    xaxis: {
-      tickPlacement: "on",
-      categories: [
-        "언어와 기초",
-        "기초과학",
-        "인문사회",
-        "전공",
-        "기타 및 연구",
-        "자유학점",
-      ],
-    },
-    yaxis: {
-      max: 100,
-      show: false,
-      labels: {
-        show: false,
-      },
-      axisTicks: {
-        show: false,
-      },
-      axisBorder: {
-        show: false,
-      },
-      crosshairs: {
-        show: false,
-      },
-      tooltip: {
-        enabled: false,
+      y: {
+        display: false,
       },
     },
   };
 
-  const series = [
-    {
-      name: "강의 이수 현황",
-      data: [100, 100, 63, 33, 14, 100],
-    },
+  const labels = [
+    "언어와 기초",
+    "기초과학",
+    "인문사회",
+    "전공",
+    "기타 및 연구",
+    "자유학점",
   ];
+
+  const calcPercent = (category: SingleCategoryType | undefined) => {
+    if (typeof category === undefined) {
+      return 0;
+    } else {
+      const total = category?.totalCredits as number;
+      const minimum = category?.minConditionCredits as number;
+      return total <= minimum ? Math.round((total * 100) / minimum) : 100;
+    }
+  };
+
+  const dataPercentage = [
+    calcPercent(valueContext?.graduationCategory?.languageBasic),
+    calcPercent(valueContext?.graduationCategory?.scienceBasic),
+    calcPercent(valueContext?.graduationCategory?.humanities),
+    calcPercent(valueContext?.graduationCategory?.major),
+    calcPercent(valueContext?.graduationCategory?.etcMandatory),
+    calcPercent(valueContext?.graduationCategory?.otherUncheckedClass),
+  ];
+
+  const data = {
+    labels,
+    datasets: [
+      {
+        label: "이수 완료도",
+        data: dataPercentage,
+        backgroundColor: [
+          "#6BCB77",
+          "#4D96FF",
+          "#F0CA33",
+          "#FF6B6B",
+          "#9772FB",
+          "#B0B8C1",
+        ],
+        barThickness: 40,
+        borderRadius: 6,
+      },
+    ],
+  };
   return (
     <ColumnProgressContainer>
-      <Chart
-        type="bar"
-        options={options}
-        series={series}
-        width={460}
-        height={350}
-      />
+      <Bar options={options} data={data} width={300} height={420} />
     </ColumnProgressContainer>
   );
 }

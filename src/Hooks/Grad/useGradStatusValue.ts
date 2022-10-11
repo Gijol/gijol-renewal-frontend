@@ -4,7 +4,7 @@ import { GradStatusValueContext } from "../../Provider/GradProvider";
 function useGradStatusValue() {
   const value = useContext(GradStatusValueContext);
   if (value === undefined) {
-    throw new Error("useCounterActions should be used within CounterProvider");
+    // throw new Error("useGradStatusValue should be used within value provider");
   }
   return value;
 }
