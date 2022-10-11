@@ -2,6 +2,11 @@ import React from "react";
 import ReactApexChart from "react-apexcharts";
 import styled from "styled-components";
 import { ApexOptions } from "apexcharts";
+import useGradStatusValue from "../../../Hooks/Grad/useGradStatusValue";
+import {
+  GradCategoriesType,
+  SingleCategoryType,
+} from "../../../Api/Grad/types/gradApiResultTypes";
 
 interface CircleCProps {
   currentTab: string;
@@ -17,6 +22,19 @@ const CircularCardWrapper = styled.div`
 `;
 
 function CreditCircularCardResult({ currentTab }: CircleCProps) {
+  const valueContext = useGradStatusValue();
+  const calcPercent = (category: SingleCategoryType | undefined) => {
+    if (typeof category === undefined) {
+      return 0;
+    } else {
+      const total = category?.totalCredits as number;
+      const minimum = category?.minConditionCredits as number;
+      return total <= minimum ? Math.round((total * 100) / minimum) : 100;
+    }
+  };
+
+  const tempCategory = valueContext?.graduationCategory as GradCategoriesType;
+
   const options: ApexOptions = {
     chart: {
       height: 280,
@@ -55,7 +73,9 @@ function CreditCircularCardResult({ currentTab }: CircleCProps) {
       lineCap: "round",
     },
   };
-  const series = [70];
+  const series = [
+    calcPercent(tempCategory[currentTab as keyof GradCategoriesType]),
+  ];
   return (
     <CircularCardWrapper>
       <ReactApexChart

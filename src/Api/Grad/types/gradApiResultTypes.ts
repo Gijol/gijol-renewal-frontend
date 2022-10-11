@@ -19,15 +19,17 @@ export interface SingleCategoryType {
   userTakenCoursesList: UserTakenCourseListType;
 }
 
+export interface GradCategoriesType {
+  languageBasic: SingleCategoryType;
+  scienceBasic: SingleCategoryType;
+  major: SingleCategoryType;
+  humanities: SingleCategoryType;
+  etcMandatory: SingleCategoryType;
+  otherUncheckedClass: SingleCategoryType;
+}
+
 export interface GradStatusType {
-  graduationCategory: {
-    languageBasic: SingleCategoryType;
-    scienceBasic: SingleCategoryType;
-    major: SingleCategoryType;
-    humanities: SingleCategoryType;
-    etcMandatory: SingleCategoryType;
-    otherUncheckedClass: SingleCategoryType;
-  };
+  graduationCategory: GradCategoriesType;
   totalCredits: number;
   totalSatisfied: boolean;
 }

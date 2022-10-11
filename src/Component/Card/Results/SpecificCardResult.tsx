@@ -3,6 +3,7 @@ import CreditCircularCardResult from "./CreditCircularCardResult";
 import CreditIsSatisfiedCardResult from "./CreditIsSatisfiedCardResult";
 import CreditListCardResult from "./CreditListCardResult";
 import styled from "styled-components";
+import useGradStatusValue from "../../../Hooks/Grad/useGradStatusValue";
 
 interface CProps {
   currentTab: string;
@@ -47,8 +48,6 @@ const CreditChartContainer = styled.div`
 `;
 
 function SpecificCardResult({ currentTab }: CProps) {
-  // 여기 대쉬보드 뜨게 한다면, 한 탭에서 다른 탭으로 넘어갈 때 보이는 화면도 생성해야됨
-  // 로딩 상태와 대쉬보드 누른 상태, 한 탭에서 다른 탭으로 넘어갈 때, 이런거 상태관리 해야됨.
   const contents = !currentTab ? (
     <UnClickedContainer>좌측의 대시보드를 눌러보세요!</UnClickedContainer>
   ) : (

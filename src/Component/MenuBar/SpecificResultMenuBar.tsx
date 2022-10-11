@@ -44,42 +44,42 @@ function SpecificResultMenuBar({ onMenuTabClick, onOutsideClick }: MProps) {
   return (
     <MenuBarContainer>
       <MenuTab
-        onClick={() => onMenuTabClick("LanguageAndBasics")}
+        onClick={() => onMenuTabClick("languageBasic")}
         color="#6BCB77"
         // onBlur={() => onOutsideClick()}
       >
         언어와 기초
       </MenuTab>
       <MenuTab
-        onClick={() => onMenuTabClick("BasicScience")}
+        onClick={() => onMenuTabClick("scienceBasic")}
         color="#4D96FF"
         // onBlur={() => onOutsideClick()}
       >
         기초과학
       </MenuTab>
       <MenuTab
-        onClick={() => onMenuTabClick("HumanityAndSociety")}
+        onClick={() => onMenuTabClick("humanities")}
         color="#F0CA33"
         // onBlur={() => onOutsideClick()}
       >
         인문사회
       </MenuTab>
       <MenuTab
-        onClick={() => onMenuTabClick("Major")}
+        onClick={() => onMenuTabClick("major")}
         color="#FF6B6B"
         // onBlur={() => onOutsideClick()}
       >
         전공
       </MenuTab>
       <MenuTab
-        onClick={() => onMenuTabClick("ResearchAndExtra")}
+        onClick={() => onMenuTabClick("etcMandatory")}
         color="#9772FB"
         // onBlur={() => onOutsideClick()}
       >
         연구 및 기타
       </MenuTab>
       <MenuTab
-        onClick={() => onMenuTabClick("ElseCredits")}
+        onClick={() => onMenuTabClick("otherUncheckedClass")}
         color="#B0B8C1"
         // onBlur={() => onOutsideClick()}
       >

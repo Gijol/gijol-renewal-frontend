@@ -1,5 +1,10 @@
 import React from "react";
 import styled from "styled-components";
+import useGradStatusValue from "../../../Hooks/Grad/useGradStatusValue";
+import {
+  GradCategoriesType,
+  SingleCategoryType,
+} from "../../../Api/Grad/types/gradApiResultTypes";
 
 interface BarCProps {
   currentTab: string;
@@ -21,12 +26,39 @@ const IsSatisfiedCardWrapper = styled.div`
 `;
 
 function CreditIsSatisfiedCardResult({ currentTab }: BarCProps) {
-  return (
-    <IsSatisfiedCardWrapper>
-      {currentTab}의 <br />
-      충족 여부에 대한 결과 표시
-    </IsSatisfiedCardWrapper>
-  );
+  const valueContext = useGradStatusValue();
+
+  const calcPercent = (total: number, min: number) => {
+    return Math.round((total * 100) / min);
+  };
+
+  const tempCategory = valueContext?.graduationCategory as GradCategoriesType;
+  const currentCategory = tempCategory[currentTab as keyof GradCategoriesType];
+
+  const satisfied = currentCategory.satisfied;
+  const total = currentCategory.totalCredits;
+  const min = currentCategory.minConditionCredits;
+
+  const content = [];
+
+  if (satisfied) {
+    content.push(<span>전부 들으셨네요!</span>);
+  } else {
+    if (total >= min && total > 0) {
+      content.push(
+        <span>
+          학점은 채우셨지만,
+          <br />
+          필수과목은 부족하네요...
+        </span>
+      );
+    } else if (total < min && total > 0) {
+      content.push(<span>{calcPercent(total, min)}% 만큼 들으셨네요!</span>);
+    } else {
+      content.push(<span>아무것도 안들으셨네요...</span>);
+    }
+  }
+  return <IsSatisfiedCardWrapper>{content}</IsSatisfiedCardWrapper>;
 }
 
 export default CreditIsSatisfiedCardResult;

@@ -36,7 +36,7 @@ function ColumnProgressBar() {
       },
       title: {
         display: false,
-        text: "Chart.js Bar Chart",
+        text: "Chart",
       },
     },
     scales: {
