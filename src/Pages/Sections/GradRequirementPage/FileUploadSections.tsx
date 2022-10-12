@@ -1,11 +1,11 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import DragAndDropZone from "../../../Component/File/DragAndDropZone";
 import MajorInput from "../../../Component/Input/MajorInput";
 import styled from "styled-components";
 import HelpToggleModal from "../../../Component/Modal/HelpToggleModal";
 import useGradStatusAction from "../../../Hooks/Grad/useGradStatusAction";
 import useGradStatusValue from "../../../Hooks/Grad/useGradStatusValue";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import postGradStatusFile from "../../../Api/Grad/call/postGradStatusFile";
 
 const InputContainer = styled.div`
@@ -39,24 +39,24 @@ function FileUploadSections() {
 
   const onFileUploadHandler = () => {
     if (gradFile === undefined) {
-      alert("File not uploaded")
+      alert("File not uploaded");
     } else {
-      action?.updateGradStatus(gradFile, majorType)
-      navigate("/grad/result")
+      action?.updateGradStatus(gradFile, majorType);
+      navigate("/grad/result");
     }
-  }
+  };
 
   return (
-      <>
-        <DragAndDropZone setGradFile={setGradFile}/>
-        <InputContainer>
-          <HelpToggleModal/>
-          <MajorInput setMajorType={setMajorType}/>
-          <FileUploadButtonContainer onClick={onFileUploadHandler}>
-            결과 확인하기
-          </FileUploadButtonContainer>
-        </InputContainer>
-      </>
+    <>
+      <DragAndDropZone setGradFile={setGradFile} />
+      <InputContainer>
+        <HelpToggleModal />
+        <MajorInput setMajorType={setMajorType} />
+        <FileUploadButtonContainer onClick={onFileUploadHandler}>
+          결과 확인하기
+        </FileUploadButtonContainer>
+      </InputContainer>
+    </>
   );
 }
 

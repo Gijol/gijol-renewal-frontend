@@ -1,9 +1,16 @@
 import React from "react";
 import styled from "styled-components";
 
+interface CProps {
+  courseCode: string;
+  courseTitle: string;
+  courseInstructor?: string;
+  courseTags: Array<string>;
+}
+
 const CourseCardContainer = styled.div`
   box-sizing: border-box;
-  padding: 24px;
+  padding: 32px;
   width: 300px;
   height: 280px;
   background-color: #f2f4f6;
@@ -28,8 +35,11 @@ const CourseCode = styled.p`
 const CourseTitle = styled.p`
   padding: 0;
   margin: 0;
-  font-size: 32px;
+  font-size: 22px;
   text-align: center;
+  word-break: keep-all;
+  white-space: pre-wrap;
+  line-height: 1.5;
 `;
 
 const CourseTagContainer = styled.div`
@@ -55,17 +65,21 @@ const CourseInstructor = styled.p`
   font-size: 16px;
 `;
 
-function CourseCardSelectable() {
+function CourseCardSelectable({
+  courseCode,
+  courseTitle,
+  courseInstructor,
+  courseTags,
+}: CProps) {
+  const tagContents = courseTags.map((item: string) => {
+    return <CourseTag key={item.length}>{item}</CourseTag>;
+  });
   return (
     <CourseCardContainer>
-      <CourseCode>GS1001</CourseCode>
-      <CourseTitle>Computer Networking</CourseTitle>
-      <CourseInstructor>Suman Pandey</CourseInstructor>
-      <CourseTagContainer>
-        <CourseTag>Tag1</CourseTag>
-        <CourseTag>Tag2</CourseTag>
-        <CourseTag>Tag3</CourseTag>
-      </CourseTagContainer>
+      <CourseCode>{courseCode}</CourseCode>
+      <CourseTitle>{courseTitle}</CourseTitle>
+      <CourseInstructor>{courseInstructor}</CourseInstructor>
+      <CourseTagContainer>{tagContents}</CourseTagContainer>
     </CourseCardContainer>
   );
 }

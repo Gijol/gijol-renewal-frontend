@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import CourseCardSelectable from "../../../Component/Card/CourseSearch/CourseCardSelectable";
 import styled from "styled-components";
+import useCourseList from "../../../Hooks/Course/useCourseList";
+import { CourseType } from "../../../Api/CourseSearch/types/courseListTypes";
 
 const CourseCardGridContainer = styled.div`
   width: fit-content;
@@ -27,14 +29,21 @@ const CourseCardGridContainer = styled.div`
 `;
 
 function CourseCardListSection() {
+  const context = useCourseList();
+  const loadingContent = <p>서버에서 값 불러오는중...</p>;
+  const courseListContent = context?.map((item: CourseType) => {
+    return (
+      <CourseCardSelectable
+        key={item.id}
+        courseCode={item.courseCode}
+        courseTitle={item.courseName}
+        courseTags={item.courseTags}
+      />
+    );
+  });
   return (
     <CourseCardGridContainer>
-      {/* 여기에 강의 정보 받아와서 보여주는 부분 */}
-      <CourseCardSelectable />
-      <CourseCardSelectable />
-      <CourseCardSelectable />
-      <CourseCardSelectable />
-      <CourseCardSelectable />
+      {context ? courseListContent : loadingContent}
     </CourseCardGridContainer>
   );
 }
