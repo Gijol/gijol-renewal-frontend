@@ -1,10 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import useGradStatusValue from "../../../Hooks/Grad/useGradStatusValue";
-import {
-  GradCategoriesType,
-  SingleCategoryType,
-} from "../../../Api/Grad/types/gradApiResultTypes";
+import { GradCategoriesType } from "../../../Api/Grad/types/gradApiResultTypes";
 
 interface BarCProps {
   currentTab: string;

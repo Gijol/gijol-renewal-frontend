@@ -8,7 +8,7 @@ interface CProps {
   courseTags: Array<string>;
 }
 
-const CourseCardContainer = styled.div`
+export const CourseCardContainer = styled.div`
   box-sizing: border-box;
   padding: 32px;
   width: 300px;
@@ -35,7 +35,7 @@ const CourseCode = styled.p`
 const CourseTitle = styled.p`
   padding: 0;
   margin: 0;
-  font-size: 22px;
+  font-size: 24px;
   text-align: center;
   word-break: keep-all;
   white-space: pre-wrap;

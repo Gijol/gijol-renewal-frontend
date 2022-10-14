@@ -9,7 +9,8 @@ const RecommendCardContainer = styled.div`
   border-radius: 6px;
   position: relative;
   cursor: pointer;
-  transform: ${(props: any) => props.clicked && "rotateY(180deg)"};
+  transform: ${(props: { onClick: () => void; clicked: boolean }) =>
+    props.clicked && "rotateY(180deg)"};
   transform-style: preserve-3d;
   transition: transform 0.5s;
 `;

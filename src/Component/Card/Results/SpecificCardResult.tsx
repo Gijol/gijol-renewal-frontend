@@ -3,7 +3,6 @@ import CreditCircularCardResult from "./CreditCircularCardResult";
 import CreditIsSatisfiedCardResult from "./CreditIsSatisfiedCardResult";
 import CreditListCardResult from "./CreditListCardResult";
 import styled from "styled-components";
-import useGradStatusValue from "../../../Hooks/Grad/useGradStatusValue";
 
 interface CProps {
   currentTab: string;

@@ -1,4 +1,4 @@
-import React, {Dispatch, SetStateAction, useEffect, useState} from "react";
+import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import styled from "styled-components";
 import { useDropzone } from "react-dropzone";
 

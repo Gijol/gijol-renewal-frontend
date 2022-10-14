@@ -1,5 +1,5 @@
 import React from "react";
-import { BsSearch } from "react-icons/all";
+import { BsSearch } from "react-icons/bs/index.js";
 import styled from "styled-components";
 
 const SearchButton = styled.button`
