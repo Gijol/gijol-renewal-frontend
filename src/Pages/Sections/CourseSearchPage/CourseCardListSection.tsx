@@ -1,8 +1,14 @@
-import React, { useState } from "react";
+import React, { MutableRefObject, useRef, useState } from "react";
 import CourseCardSelectable from "../../../Component/Card/CourseSearch/CourseCardSelectable";
 import styled from "styled-components";
 import useCourseList from "../../../Hooks/Course/useCourseList";
-import { CourseType } from "../../../Api/CourseSearch/types/courseListTypes";
+import {
+  CourseListType,
+  CourseType,
+} from "../../../Api/CourseSearch/types/courseListTypes";
+import CourseCardLoader from "../../../Component/Loading/CourseCardLoader";
+import useIntersect from "../../../Hooks/Intersect/useIntersect";
+import { courseList } from "../../../storage/courseList";
 
 const CourseCardGridContainer = styled.div`
   width: fit-content;
@@ -29,18 +35,45 @@ const CourseCardGridContainer = styled.div`
 `;
 
 function CourseCardListSection() {
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [courseMockList, setCourseMockList] = useState(courseList);
   const context = useCourseList();
+
+  const [, setTarget] = useIntersect(async ([entry], observer) => {
+    observer.unobserve(entry.target);
+    await getMoreItemList();
+    observer.observe(entry.target);
+  }, {});
+
   const loadingContent = <p>서버에서 값 불러오는중...</p>;
-  const courseListContent = context?.map((item: CourseType) => {
-    return (
-      <CourseCardSelectable
-        key={item.id}
-        courseCode={item.courseCode}
-        courseTitle={item.courseName}
-        courseTags={item.courseTags}
-      />
-    );
-  });
+
+  const getMoreItemList = async () => {
+    setIsLoaded(true);
+    await new Promise((resolve) => {
+      setTimeout(resolve, 1500);
+    });
+    let items = courseList;
+    setCourseMockList((prev: CourseListType) => prev.concat(items));
+    setIsLoaded(false);
+  };
+
+  const courseListContent = (
+    <>
+      {courseMockList.map((item: CourseType, index: number) => {
+        return (
+          <CourseCardSelectable
+            key={index}
+            courseCode={item.courseCode}
+            courseTitle={item.courseName}
+            courseTags={item.courseTags}
+          />
+        );
+      })}
+      <div ref={(ref) => setTarget(ref)}>
+        {isLoaded && <CourseCardLoader />}
+      </div>
+    </>
+  );
   return (
     <CourseCardGridContainer>
       {context ? courseListContent : loadingContent}

@@ -1,5 +1,4 @@
 import axios from "axios";
-import { CourseListType } from "../types/courseListTypes";
 
 const getCourseList = async () => {
   const BASE_URL = "https://dev-api.gijol.im";
@@ -9,7 +8,7 @@ const getCourseList = async () => {
         Accept: "application/json",
       },
     });
-    console.log("Response status: ", status);
+    // console.log("Response status: ", status);
     return data;
   } catch (err) {
     if (axios.isAxiosError(err)) {

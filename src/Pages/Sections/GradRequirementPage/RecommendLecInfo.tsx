@@ -1,7 +1,7 @@
 import React from "react";
 import {
-  FnExplanationDetail,
   FnExplanation,
+  FnExplanationDetail,
 } from "../../../Layout/Container/FnDescriptionContainer";
 import RecommendResult from "./RecommendResult";
 

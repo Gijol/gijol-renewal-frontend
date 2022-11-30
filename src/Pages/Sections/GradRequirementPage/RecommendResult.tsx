@@ -1,12 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import ResultContainer from "../../../Layout/Container/ResultContainer";
-import { Swiper, SwiperSlide } from "swiper/react";
-
+// import { SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
-import { EffectCoverflow, Pagination } from "swiper";
 import RecommendCardSlide from "../../../Component/Card/Results/RecommendedCourse/RecommendCardSlide";
 import useGradStatusValue from "../../../Hooks/Grad/useGradStatusValue";
 import { SingleCategoryType } from "../../../Api/Grad/types/gradApiResultTypes";
@@ -24,14 +22,14 @@ const RecommendResultContainer = styled.div`
   gap: 40px;
 `;
 
-const SwiperSlideContainer = styled(SwiperSlide)`
-  box-sizing: border-box;
-  background-position: center;
-  width: fit-content;
-  height: fit-content;
-  background-color: transparent;
-  margin: 40px 0;
-`;
+// const SwiperSlideContainer = styled(SwiperSlide)`
+//   box-sizing: border-box;
+//   background-position: center;
+//   width: fit-content;
+//   height: fit-content;
+//   background-color: transparent;
+//   margin: 40px 0;
+// `;
 
 // Swiper Slide 적용 여부 및 animation 조정
 function RecommendResult() {
