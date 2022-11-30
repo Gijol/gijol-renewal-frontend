@@ -27,7 +27,7 @@ const HeaderButtonContainer = styled.div`
 
 function Header() {
   const gradRequirementPage = "grad/upload";
-  const courseSearchPage = "course-search";
+  const courseSearchPage = "course/search";
   return (
     <HeaderContainer>
       <MainTitle>강의의 모든것, Gijol에서 확인하세요</MainTitle>

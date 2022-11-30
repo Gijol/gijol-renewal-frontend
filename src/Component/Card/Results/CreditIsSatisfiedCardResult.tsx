@@ -39,20 +39,22 @@ function CreditIsSatisfiedCardResult({ currentTab }: BarCProps) {
   const content = [];
 
   if (satisfied) {
-    content.push(<span>전부 들으셨네요!</span>);
+    content.push(<span key={1}>전부 들으셨네요!</span>);
   } else {
     if (total >= min && total > 0) {
       content.push(
-        <span>
+        <span key={1}>
           학점은 채우셨지만,
           <br />
           필수과목은 부족하네요...
         </span>
       );
     } else if (total < min && total > 0) {
-      content.push(<span>{calcPercent(total, min)}% 만큼 들으셨네요!</span>);
+      content.push(
+        <span key={1}>{calcPercent(total, min)}% 만큼 들으셨네요!</span>
+      );
     } else {
-      content.push(<span>아무것도 안들으셨네요...</span>);
+      content.push(<span key={1}>아무것도 안들으셨네요...</span>);
     }
   }
   return <IsSatisfiedCardWrapper>{content}</IsSatisfiedCardWrapper>;

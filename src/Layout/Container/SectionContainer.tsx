@@ -7,13 +7,16 @@ interface SProps {
 }
 
 const SectionContainerReversible = styled.div`
-  padding: 40px 0;
-  margin: 0 80px;
+  box-sizing: border-box;
+  padding: 40px;
+  margin: 80px;
   background-color: white;
-  height: 400px;
+  height: fit-content;
   display: flex;
-  flex-direction: ${(props: SProps) =>
-    !props.reversed ? "row" : "row-reverse"};
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  gap: 120px;
   @media only screen and (max-width: 500px) {
     display: none;
   }
@@ -21,9 +24,7 @@ const SectionContainerReversible = styled.div`
 
 function SectionContainer(props: any) {
   return (
-    <SectionContainerReversible reversed={props.reversed}>
-      {props.children}
-    </SectionContainerReversible>
+    <SectionContainerReversible>{props.children}</SectionContainerReversible>
   );
 }
 

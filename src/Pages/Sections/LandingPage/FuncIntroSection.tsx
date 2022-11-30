@@ -10,7 +10,7 @@ function FuncIntroSection() {
         <SubTitle>Gijol은 아래 기능들을 제공합니다.</SubTitle>
       </div>
       <FuncCardSection />
-      <FuncCardExplainSection />
+      {/*<FuncCardExplainSection />*/}
     </>
   );
 }

@@ -10,6 +10,7 @@ import {
 
 interface CircleCProps {
   currentTab: string;
+  cntColor: string;
 }
 
 const CircularCardWrapper = styled.div`
@@ -21,7 +22,7 @@ const CircularCardWrapper = styled.div`
   padding: 10px;
 `;
 
-function CreditCircularCardResult({ currentTab }: CircleCProps) {
+function CreditCircularCardResult({ currentTab, cntColor }: CircleCProps) {
   const valueContext = useGradStatusValue();
   const calcPercent = (category: SingleCategoryType | undefined) => {
     if (typeof category === undefined) {
@@ -72,6 +73,7 @@ function CreditCircularCardResult({ currentTab }: CircleCProps) {
     stroke: {
       lineCap: "round",
     },
+    colors: [cntColor],
   };
   const series = [
     calcPercent(tempCategory[currentTab as keyof GradCategoriesType]),

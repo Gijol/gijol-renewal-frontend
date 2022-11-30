@@ -9,6 +9,8 @@ interface IProps {
   explanation: string;
   name: string;
   reversed: boolean;
+  imgLink: string;
+  alt: string;
 }
 
 const FnTextContainer = styled.div`
@@ -20,10 +22,16 @@ const FnTextContainer = styled.div`
   align-items: flex-start;
 `;
 
+const ImgContainer = styled.img`
+  box-sizing: border-box;
+  width: 400px;
+  height: 400px;
+`;
+
 function FuncCardExplainSection() {
   const explanationContents = fnList.map((item: IProps) => {
     return (
-      <SectionContainer reversed={item.reversed} key={item.key}>
+      <SectionContainer key={item.key}>
         <FnTextContainer>
           <div>
             <p style={{ fontSize: "28px", margin: "0 0 28px 0" }}>
@@ -32,6 +40,11 @@ function FuncCardExplainSection() {
           </div>
           <MainDetail>{item.explanation}</MainDetail>
         </FnTextContainer>
+        <ImgContainer
+          src={item.imgLink}
+          alt={item.alt}
+          style={{ objectFit: "cover" }}
+        />
       </SectionContainer>
     );
   });

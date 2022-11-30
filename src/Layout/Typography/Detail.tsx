@@ -17,7 +17,7 @@ function MainDetail(props: any) {
 
 function SubDetail(props: any) {
   return (
-    <div style={{ fontSize: "0.75rem", color: "gray" }}>{props.children}</div>
+    <div style={{ fontSize: "16px", color: "gray" }}>{props.children}</div>
   );
 }
 

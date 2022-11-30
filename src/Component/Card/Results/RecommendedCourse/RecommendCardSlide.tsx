@@ -6,57 +6,75 @@ const RecommendCardContainer = styled.div`
   width: 300px;
   height: 400px;
   margin-right: 20px;
-  border-radius: 6px;
+  border-radius: 16px;
   position: relative;
   cursor: pointer;
-  transform: ${(props: { onClick: () => void; clicked: boolean }) =>
-    props.clicked && "rotateY(180deg)"};
+  transform: ${({ clicked }: any) => clicked && "rotateY(180deg)"};
   transform-style: preserve-3d;
   transition: transform 0.5s;
 `;
 
-function RecommendCardSlide() {
+const RecommendCardTitle = styled.div`
+  box-sizing: border-box;
+  height: 400px;
+  width: 300px;
+  padding: 10px;
+  position: absolute;
+  backface-visibility: hidden;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 80px;
+`;
+
+const RecommendCardContent = styled.div`
+  box-sizing: border-box;
+  height: 400px;
+  width: 300px;
+  padding: 40px;
+  position: absolute;
+  backface-visibility: hidden;
+  background-color: #f2f4f6;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  word-break: keep-all;
+`;
+
+function RecommendCardSlide({
+  title,
+  isSatisfied,
+  content,
+  color,
+}: {
+  title: string;
+  isSatisfied: boolean;
+  content: string[];
+  color: string;
+}) {
   const [clicked, setClicked] = useState(false);
   const onClickHandler = () => {
     setClicked((prev) => {
       return !prev;
     });
   };
+  const messages = content?.map((message, index) => {
+    return <p key={index}>👉 {message}</p>;
+  });
   return (
     <RecommendCardContainer onClick={onClickHandler} clicked={clicked}>
-      <div
-        style={{
-          boxSizing: "border-box",
-          height: "400px",
-          width: "300px",
-          padding: "10px",
-          position: "absolute",
-          backfaceVisibility: "hidden",
-          backgroundColor: "#f2f4f6",
-          borderRadius: "6px",
-        }}
-      >
-        슬라이드 1
-      </div>
-      <div
-        style={{
-          boxSizing: "border-box",
-          height: "400px",
-          width: "300px",
-          padding: "10px",
-          position: "absolute",
-          backfaceVisibility: "hidden",
-          backgroundColor: "gray",
-          transform: "rotateY(180deg)",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          borderRadius: "6px",
-        }}
-      >
-        슬라이드 1의 내용들
-      </div>
+      <RecommendCardTitle style={{ backgroundColor: color }}>
+        <h2 style={{ color: "white" }}>{title}</h2>
+        <p style={{ color: "white" }}>👆 눌러서 뒤를 봐보세요!</p>
+      </RecommendCardTitle>
+      <RecommendCardContent>
+        {isSatisfied ? "👏 전부 이수하셨습니다! 👏" : messages}
+      </RecommendCardContent>
     </RecommendCardContainer>
   );
 }

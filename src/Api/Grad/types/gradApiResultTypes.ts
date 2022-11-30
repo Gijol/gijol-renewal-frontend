@@ -23,6 +23,7 @@ export interface GradCategoriesType {
   languageBasic: SingleCategoryType;
   scienceBasic: SingleCategoryType;
   major: SingleCategoryType;
+  minor: SingleCategoryType;
   humanities: SingleCategoryType;
   etcMandatory: SingleCategoryType;
   otherUncheckedClass: SingleCategoryType;
