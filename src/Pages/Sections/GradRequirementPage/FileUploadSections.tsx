@@ -4,9 +4,8 @@ import MajorInput from "../../../Component/Input/MajorInput";
 import styled from "styled-components";
 import HelpToggleModal from "../../../Component/Modal/HelpToggleModal";
 import useGradStatusAction from "../../../Hooks/Grad/useGradStatusAction";
-import useGradStatusValue from "../../../Hooks/Grad/useGradStatusValue";
 import { useNavigate } from "react-router-dom";
-import postGradStatusFile from "../../../Api/Grad/call/postGradStatusFile";
+import SubMajorInput from "../../../Component/Input/SubMajorInput";
 
 const InputContainer = styled.div`
   box-sizing: border-box;
@@ -32,6 +31,7 @@ const FileUploadButtonContainer = styled.button`
 
 function FileUploadSections() {
   const [majorType, setMajorType] = useState<string>("EC");
+  const [subMajorType, setSubMajorType] = useState<string>("EC");
   const [gradFile, setGradFile] = useState<File | undefined>(undefined);
 
   const action = useGradStatusAction();
@@ -41,7 +41,7 @@ function FileUploadSections() {
     if (gradFile === undefined) {
       alert("File not uploaded");
     } else {
-      action?.updateGradStatus(gradFile, majorType);
+      action?.updateGradStatus(gradFile, majorType, subMajorType);
       navigate("/grad/result");
     }
   };
@@ -52,6 +52,7 @@ function FileUploadSections() {
       <InputContainer>
         <HelpToggleModal />
         <MajorInput setMajorType={setMajorType} />
+        <SubMajorInput setMajorType={setSubMajorType} />
         <FileUploadButtonContainer onClick={onFileUploadHandler}>
           결과 확인하기
         </FileUploadButtonContainer>

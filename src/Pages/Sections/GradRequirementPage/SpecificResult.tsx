@@ -8,7 +8,7 @@ const SpecificResultContainer = styled.div`
   box-sizing: border-box;
   width: 960px;
   height: 400px;
-  border-radius: 6px;
+  border-radius: 16px;
   background-color: #fff;
   margin: 40px 0;
   display: flex;
@@ -19,26 +19,22 @@ const SpecificResultContainer = styled.div`
 
 function SpecificResult() {
   const [category, setCategory] = useState("");
+  const [cntColor, setCntColor] = useState("");
 
-  const onMenuTabClick = (item: string) => {
+  const onMenuTabClick = (item: string, color: string) => {
     setCategory(() => {
       return item;
     });
-  };
-
-  const onOutsideClick = () => {
-    setCategory(() => {
-      return "";
+    setCntColor(() => {
+      return color;
     });
   };
+
   return (
     <ResultContainer>
       <SpecificResultContainer>
-        <SpecificResultMenuBar
-          onMenuTabClick={onMenuTabClick}
-          onOutsideClick={onOutsideClick}
-        />
-        <SpecificCardResult currentTab={category} />
+        <SpecificResultMenuBar onMenuTabClick={onMenuTabClick} />
+        <SpecificCardResult currentTab={category} cntColor={cntColor} />
       </SpecificResultContainer>
     </ResultContainer>
   );

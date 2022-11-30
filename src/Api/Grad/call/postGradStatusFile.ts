@@ -16,22 +16,27 @@ class HTTPError extends Error {
 
 const postGradStatusFile = async (
   gradeStatusFile: File,
-  majorType: string
+  majorType: string,
+  subMajorType: string
 ): Promise<GradStatusType> => {
   const BASE_URL = "https://dev-api.gijol.im";
   const formData = new FormData();
 
   formData.append("majorType", majorType);
+  formData.append("minorType", subMajorType);
   formData.append("multipartFile", gradeStatusFile);
 
-  const response = await axios.post(`${BASE_URL}/graduation`, formData);
-  if (response.status === 405) {
+  const gradResultResponse = await axios.post(
+    `${BASE_URL}/graduation/demo`,
+    formData
+  );
+  if (gradResultResponse.status === 405) {
     throw new HTTPError("지원하지 않는 학번입니다.");
   }
-  if (response.status === 500) {
+  if (gradResultResponse.status === 500) {
     throw new HTTPError("파일 입력 오류.");
   }
-  return response.data;
+  return gradResultResponse.data;
 };
 
 export default postGradStatusFile;

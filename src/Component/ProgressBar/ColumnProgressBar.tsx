@@ -16,7 +16,7 @@ const ColumnProgressContainer = styled.div`
   height: 380px;
   padding: 40px;
   border-radius: 16px;
-  background-color: #fff;
+  background-color: unset;
   display: flex;
   flex-direction: column;
   justify-content: center;

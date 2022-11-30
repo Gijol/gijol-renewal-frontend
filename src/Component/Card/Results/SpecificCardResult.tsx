@@ -7,6 +7,7 @@ import useGradStatusValue from "../../../Hooks/Grad/useGradStatusValue";
 
 interface CProps {
   currentTab: string;
+  cntColor: string;
 }
 
 const UnClickedContainer = styled.div`
@@ -33,7 +34,7 @@ const CardResultContainer = styled.div`
   gap: 10px;
   padding: 10px;
   background-color: #fff;
-  border-radius: 0 6px 6px 0;
+  border-radius: 0 16px 16px 0;
   box-shadow: -2px 0 3px 1px rgb(0 0 0 / 10%);
 `;
 
@@ -47,13 +48,13 @@ const CreditChartContainer = styled.div`
   gap: 10px;
 `;
 
-function SpecificCardResult({ currentTab }: CProps) {
+function SpecificCardResult({ currentTab, cntColor }: CProps) {
   const contents = !currentTab ? (
     <UnClickedContainer>좌측의 대시보드를 눌러보세요!</UnClickedContainer>
   ) : (
     <CardResultContainer>
       <CreditChartContainer>
-        <CreditCircularCardResult currentTab={currentTab} />
+        <CreditCircularCardResult currentTab={currentTab} cntColor={cntColor} />
         <CreditIsSatisfiedCardResult currentTab={currentTab} />
       </CreditChartContainer>
       <CreditListCardResult currentTab={currentTab} />

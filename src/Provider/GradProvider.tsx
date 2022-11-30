@@ -7,7 +7,11 @@ interface Props {
 }
 
 interface AProps {
-  updateGradStatus(gradStatusFile: File, majorType: string): void;
+  updateGradStatus(
+    gradStatusFile: File,
+    majorType: string,
+    subMajorType: string
+  ): void;
 }
 
 export const GradStatusValueContext = createContext<GradStatusType | undefined>(
@@ -22,8 +26,12 @@ function GradProvider({ children }: Props): JSX.Element {
 
   const action = useMemo(
     () => ({
-      updateGradStatus(gradStatusFile: File, majorType: string) {
-        postGradStatusFile(gradStatusFile, majorType).then(
+      updateGradStatus(
+        gradStatusFile: File,
+        majorType: string,
+        subMajorType: string
+      ) {
+        postGradStatusFile(gradStatusFile, majorType, subMajorType).then(
           (response: GradStatusType) => {
             console.log(response);
             setGradStatus(() => ({ ...response }));

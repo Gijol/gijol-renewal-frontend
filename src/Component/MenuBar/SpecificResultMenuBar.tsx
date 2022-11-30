@@ -2,8 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 interface MProps {
-  onMenuTabClick: (item: string) => void;
-  onOutsideClick: () => void;
+  onMenuTabClick: (item: string, color: string) => void;
 }
 
 const MenuBarContainer = styled.div`
@@ -15,7 +14,7 @@ const MenuBarContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 20px;
+  gap: 14px;
 `;
 
 const MenuTab = styled.button`
@@ -40,46 +39,53 @@ const MenuTab = styled.button`
   }
 `;
 
-function SpecificResultMenuBar({ onMenuTabClick, onOutsideClick }: MProps) {
+function SpecificResultMenuBar({ onMenuTabClick }: MProps) {
   return (
     <MenuBarContainer>
       <MenuTab
-        onClick={() => onMenuTabClick("languageBasic")}
+        onClick={() => onMenuTabClick("languageBasic", "#6BCB77")}
         color="#6BCB77"
         // onBlur={() => onOutsideClick()}
       >
         언어와 기초
       </MenuTab>
       <MenuTab
-        onClick={() => onMenuTabClick("scienceBasic")}
+        onClick={() => onMenuTabClick("scienceBasic", "#4D96FF")}
         color="#4D96FF"
         // onBlur={() => onOutsideClick()}
       >
         기초과학
       </MenuTab>
       <MenuTab
-        onClick={() => onMenuTabClick("humanities")}
+        onClick={() => onMenuTabClick("humanities", "#F0CA33")}
         color="#F0CA33"
         // onBlur={() => onOutsideClick()}
       >
         인문사회
       </MenuTab>
       <MenuTab
-        onClick={() => onMenuTabClick("major")}
+        onClick={() => onMenuTabClick("major", "#FF6B6B")}
         color="#FF6B6B"
         // onBlur={() => onOutsideClick()}
       >
         전공
       </MenuTab>
       <MenuTab
-        onClick={() => onMenuTabClick("etcMandatory")}
+        onClick={() => onMenuTabClick("major", "#ffbd51")}
+        color="#ffbd51"
+        // onBlur={() => onOutsideClick()}
+      >
+        부전공
+      </MenuTab>
+      <MenuTab
+        onClick={() => onMenuTabClick("etcMandatory", "#9772FB")}
         color="#9772FB"
         // onBlur={() => onOutsideClick()}
       >
         연구 및 기타
       </MenuTab>
       <MenuTab
-        onClick={() => onMenuTabClick("otherUncheckedClass")}
+        onClick={() => onMenuTabClick("otherUncheckedClass", "#B0B8C1")}
         color="#B0B8C1"
         // onBlur={() => onOutsideClick()}
       >

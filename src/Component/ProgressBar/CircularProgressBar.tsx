@@ -6,15 +6,26 @@ import { ApexOptions } from "apexcharts";
 
 const CircularProgressContainer = styled.div`
   box-sizing: border-box;
+  position: relative;
   width: 380px;
   height: 380px;
   border-radius: 16px;
-  background-color: #fff;
+  background-color: unset;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   //box-shadow: 0 2px 4px 0 rgb(0 0 0 / 20%);
+`;
+
+const ProgressPercent = styled.p`
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  position: absolute;
+  top: 180px;
+  font-size: 18px;
 `;
 
 function CircularProgressBar() {
@@ -72,13 +83,17 @@ function CircularProgressBar() {
   return (
     <CircularProgressContainer>
       {valueContext ? (
-        // <Doughnut data={gradOverallData} options={options} />
-        <ReactApexChart
-          options={options}
-          series={series}
-          type="radialBar"
-          height={360}
-        />
+        <>
+          <ProgressPercent>
+            이수 완료도: {calcPercent(creditsEarned, 130)}%
+          </ProgressPercent>
+          <ReactApexChart
+            options={options}
+            series={series}
+            type="radialBar"
+            height={360}
+          />
+        </>
       ) : (
         <p>서버에서 값 받아오는중!</p>
       )}
