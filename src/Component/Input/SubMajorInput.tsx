@@ -30,6 +30,7 @@ function SubMajorInput({ setMajorType }: IProps) {
       <option value="CH">화학 부전공</option>
       <option value="MC">기계공학 부전공</option>
       <option value="PS">물리광과학 부전공</option>
+      <option value="MM">수학 부전공</option>
     </SubMajorInputBtnContainer>
   );
 }
