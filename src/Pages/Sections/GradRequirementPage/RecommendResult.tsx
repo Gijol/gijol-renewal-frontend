@@ -1,3 +1,4 @@
+
 import styled from "styled-components";
 import SwiperCore, { EffectCoverflow, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";

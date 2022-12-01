@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Turn as Hamburger } from "hamburger-react";
+import { Turn as Hamburger } from "hamburger-react/";
 
 const MobileNavContainer = styled.div`
   height: fit-content;

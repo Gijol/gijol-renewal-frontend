@@ -7,11 +7,6 @@ interface BProps {
   destination: string;
 }
 
-interface LProps {
-  bgColor: string;
-  color: string;
-}
-
 const FunctionNavLinkContainer = styled(Link)`
   width: 180px;
   height: fit-content;
