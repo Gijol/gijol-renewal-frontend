@@ -1,14 +1,15 @@
-import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import ResultContainer from "../../../Layout/Container/ResultContainer";
+import SwiperCore, { EffectCoverflow, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-import "swiper/css";
-import "swiper/css/effect-coverflow";
-import "swiper/css/pagination";
-import { EffectCoverflow, Pagination } from "swiper";
+import "swiper/swiper-bundle.min.css";
+import "swiper/swiper.min.css";
+
+import ResultContainer from "../../../Layout/Container/ResultContainer";
 import RecommendCardSlide from "../../../Component/Card/Results/RecommendedCourse/RecommendCardSlide";
 import useGradStatusValue from "../../../Hooks/Grad/useGradStatusValue";
+
+SwiperCore.use([EffectCoverflow, Pagination]);
 
 const RecommendResultContainer = styled.div`
   box-sizing: border-box;
@@ -35,9 +36,6 @@ const SwiperSlideContainer = styled(SwiperSlide)`
 // Swiper Slide 적용 여부 및 animation 조정
 function RecommendResult() {
   const valueContext = useGradStatusValue();
-  const cardsOptions = {
-    slideShadows: false,
-  };
   const langBasic = valueContext?.graduationCategory.languageBasic
     .messages as string[];
   const basicSci = valueContext?.graduationCategory.scienceBasic
@@ -68,10 +66,11 @@ function RecommendResult() {
     <ResultContainer>
       <RecommendResultContainer>
         <Swiper
-          modules={[EffectCoverflow, Pagination]}
+          // modules={[EffectCoverflow, Pagination]}
           spaceBetween={40}
           slidesPerView="auto"
           effect="coverflow"
+          pagination
           coverflowEffect={{
             rotate: 30,
             stretch: 0,
@@ -83,7 +82,6 @@ function RecommendResult() {
           centeredSlides
           touchRatio={1}
           style={{ width: "100%" }}
-          cardsEffect={cardsOptions}
           // 여기는 map 함수로 넣어놓는게 맞을듯? 일단 api 받아오고 해봅시다.
         >
           <SwiperSlideContainer>
