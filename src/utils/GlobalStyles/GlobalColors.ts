@@ -1,4 +1,4 @@
-const GlobalColors = {
+export const GlobalColors = {
   grey50: "#f9fafb",
   grey100: "#f2f4f6",
   grey200: "#e5e8eb",
