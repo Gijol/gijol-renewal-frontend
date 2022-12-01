@@ -9,7 +9,6 @@ import "swiper/css/pagination";
 import { EffectCoverflow, Pagination } from "swiper";
 import RecommendCardSlide from "../../../Component/Card/Results/RecommendedCourse/RecommendCardSlide";
 import useGradStatusValue from "../../../Hooks/Grad/useGradStatusValue";
-import { SingleCategoryType } from "../../../Api/Grad/types/gradApiResultTypes";
 
 const RecommendResultContainer = styled.div`
   box-sizing: border-box;

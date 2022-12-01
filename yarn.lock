@@ -1129,10 +1129,18 @@ svg.select.js@^3.0.1:
   dependencies:
     svg.js "^2.6.5"
 
-swiper@*, swiper@^8.4.2:
+swiper@*:
   version "8.4.2"
   resolved "https://registry.yarnpkg.com/swiper/-/swiper-8.4.2.tgz#a52e091a92a52b230bd076fb3ef19ae73baed2a2"
   integrity sha512-nMD/RHVYxJxrLqjWQX2n0B94ANwpnuUv/3PUDT8Aaf+mSteFvZGFng4ypAYq70zW4svryyV+8TRlbRZ+6cgv9A==
+  dependencies:
+    dom7 "^4.0.4"
+    ssr-window "^4.0.2"
+
+swiper@^8.4.5:
+  version "8.4.5"
+  resolved "https://registry.yarnpkg.com/swiper/-/swiper-8.4.5.tgz#149ca81f67393d3f33abddd0f968fc37e99980b5"
+  integrity sha512-zveyEFBBv4q1sVkbJHnuH4xCtarKieavJ4SxP0QEHvdpPLJRuD7j/Xg38IVVLbp7Db6qrPsLUePvxohYx39Agw==
   dependencies:
     dom7 "^4.0.4"
     ssr-window "^4.0.2"
