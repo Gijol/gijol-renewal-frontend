@@ -1,4 +1,4 @@
-import { AiOutlineQuestionCircle } from "react-icons/ai";
+import { AiOutlineQuestionCircle } from "react-icons/ai/index.js";
 import styled from "styled-components";
 import { useState } from "react";
 
