@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-const RecommendCardContainer = styled.div<{ clicked: boolean }>`
+const RecommendCardContainer = styled.div`
   box-sizing: border-box;
   width: 300px;
   height: 400px;
@@ -9,9 +9,7 @@ const RecommendCardContainer = styled.div<{ clicked: boolean }>`
   border-radius: 16px;
   position: relative;
   cursor: pointer;
-  transform: ${({ clicked }: { clicked: boolean }) => {
-    return clicked && "rotateY(180deg)";
-  }};
+  transform: ${({ clicked }: any) => clicked && "rotateY(180deg)"};
   transform-style: preserve-3d;
   transition: transform 0.5s;
 `;
