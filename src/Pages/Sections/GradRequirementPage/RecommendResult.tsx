@@ -24,15 +24,6 @@ const RecommendResultContainer = styled.div`
   gap: 40px;
 `;
 
-// const SwiperSlide = styled(SwiperSlide)`
-//   box-sizing: border-box;
-//   background-position: center;
-//   width: fit-content;
-//   height: fit-content;
-//   background-color: transparent;
-//   margin: 40px 0;
-// `;
-
 // Swiper Slide 적용 여부 및 animation 조정
 function RecommendResult() {
   const valueContext = useGradStatusValue();
